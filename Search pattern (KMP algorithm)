@@ -1,0 +1,34 @@
+class Solution {
+  public:
+  const int CHAR=256;
+    char nonRepeatingChar(string &s) {
+        // Your code here
+        int fi[CHAR];
+        fill(fi,fi+CHAR,0);
+       /* for(int i=0;i<s.length();i++)
+        {
+            if(fi[s[i]]==-1)
+            fi[s[i]]=i;
+            else
+            fi[s[i]]=-2;
+        }
+        int res=INT_MAX;
+        for(int i=0;i<256;i++)
+        {
+            if(fi[i]>0)
+            res=min(res,fi[i]);
+        }
+        return (res==INT_MAX)?'$': s[res];
+       */
+       for(char c:s){
+           fi[c]++;
+       }
+       for(char c:s){
+           if(fi[c]==1){
+               return c;
+           }
+       }
+       return '$';
+       
+    }
+};
